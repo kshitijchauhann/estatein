@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { Menu } from "lucide-react";
 
 const Header = () => {
   return (
@@ -11,7 +13,7 @@ const Header = () => {
         </h1>
       </div>
 
-      {/* Navigation Links */}
+      {/* Desktop Navigation Links */}
       <div className="hidden md:flex items-center gap-1">
         <Button
           variant="ghost"
@@ -39,13 +41,70 @@ const Header = () => {
         </Button>
       </div>
 
-      {/* Contact Button */}
+      {/* Desktop Contact Button */}
       <Button
         variant="outline"
-        className="bg-[#141414] border-zinc-800 text-white px-6 py-2 rounded-lg hover:bg-zinc-800 transition-all"
+        className="hidden md:flex bg-[#141414] border-zinc-800 text-white px-6 py-2 rounded-lg hover:bg-zinc-800 transition-all"
       >
         Contact Us
       </Button>
+
+      {/* Mobile Menu Drawer */}
+      <div className="md:hidden">
+        <Drawer direction="right">
+          <DrawerTrigger asChild>
+            <Button variant="ghost" size="icon" className="text-white hover:bg-zinc-800">
+              <Menu className="w-6 h-6" />
+            </Button>
+          </DrawerTrigger>
+          <DrawerContent className="bg-[#141414] border-l border-zinc-800 h-full rounded-none w-[80%] max-w-sm">
+            <div className="flex flex-col h-full p-6">
+              <div className="flex items-center gap-2 mb-8">
+                <img className="w-8 h-8" src="/estatein.svg" alt="Estatein Logo" />
+                <h1 className="text-white text-xl font-bold tracking-tight">
+                  Estatein
+                </h1>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start text-white bg-zinc-900 border border-zinc-800 px-6 py-4 rounded-lg hover:bg-zinc-800 transition-all text-lg"
+                >
+                  Home
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start text-zinc-400 hover:text-white hover:bg-zinc-900 px-6 py-4 transition-all text-lg"
+                >
+                  About Us
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start text-zinc-400 hover:text-white hover:bg-zinc-900 px-6 py-4 transition-all text-lg"
+                >
+                  Properties
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start text-zinc-400 hover:text-white hover:bg-zinc-900 px-6 py-4 transition-all text-lg"
+                >
+                  Services
+                </Button>
+              </div>
+
+              <div className="mt-auto">
+                <Button
+                  variant="outline"
+                  className="w-full bg-[#141414] border-zinc-800 text-white px-6 py-4 rounded-lg hover:bg-zinc-800 transition-all text-lg"
+                >
+                  Contact Us
+                </Button>
+              </div>
+            </div>
+          </DrawerContent>
+        </Drawer>
+      </div>
     </nav>
   );
 };

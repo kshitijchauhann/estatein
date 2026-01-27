@@ -27,7 +27,7 @@ const sections = [
 
 const SectionTwo = () => {
   return (
-    <div className="grid grid-cols-4 gap-6 p-6 bg-[#0a0a0a] border-5 border-[#141414] ">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 bg-[#0a0a0a] border-5 border-[#141414] ">
       {sections.map(({ id, title, icon: Icon }) => (
         <div
           key={id}

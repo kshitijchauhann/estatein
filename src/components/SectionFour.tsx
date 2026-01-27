@@ -31,7 +31,7 @@ const faqs = [
 
 const SectionFour = () => {
   return (
-    <section className="w-full bg-[#0a0a0a] py-16 px-6 md:px-12 lg:px-24 flex flex-col gap-12">
+    <div className="w-full bg-[#0a0a0a] py-10 md:py-16 px-6 md:px-12 lg:px-24 flex flex-col gap-12">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6">
         <div className="max-w-3xl space-y-4">
@@ -106,7 +106,7 @@ const SectionFour = () => {
           </Button>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

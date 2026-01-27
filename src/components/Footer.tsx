@@ -46,7 +46,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#0a0a0a] text-white pt-20">
+    <footer className="w-full bg-[#0a0a0a] text-white pt-0">
       {/* CTA Section */}
       <div className="relative border-y border-zinc-800 py-16 px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-8 overflow-hidden">
         {/* Background decorative texture (optional) */}
