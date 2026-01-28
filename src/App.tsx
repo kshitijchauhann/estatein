@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 
 const App = () => {
   return (
-    <div className="min-h-screen w-full bg-black flex flex-col">
+    <div className="min-h-screen w-full flex flex-col">
       <Header />
       <SectionOne />
       <SectionTwo />

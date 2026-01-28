@@ -29,6 +29,10 @@ const footerLinks = [
     links: ["Portfolio", "Categories"],
   },
   {
+    title: "Contact Us",
+    links: ["Contact Form", "Our Offices"],
+  },
+  {
     title: "Services",
     links: [
       "Valuation Mastery",
@@ -38,15 +42,11 @@ const footerLinks = [
       "Property Management",
     ],
   },
-  {
-    title: "Contact Us",
-    links: ["Contact Form", "Our Offices"],
-  },
 ];
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#0a0a0a] text-white pt-0">
+    <footer className="w-full text-white pt-0">
       {/* CTA Section */}
       <div className="relative border-y border-zinc-800 py-16 px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-8 overflow-hidden">
         {/* Background decorative texture (optional) */}
@@ -65,7 +65,17 @@ const Footer = () => {
             assistance.
           </p>
         </div>
-        <Button className="relative z-10 bg-[#703BF7] hover:bg-[#5d2ed1] text-white px-8 py-6 text-lg rounded-xl">
+
+        <Button
+          className="
+            relative z-10
+            w-full
+            md:w-fit
+            md:flex-none
+            bg-[#703BF7] hover:bg-[#5d2ed1]
+            text-white px-8 py-6 text-lg rounded-xl
+          "
+        >
           Explore Properties
         </Button>
       </div>

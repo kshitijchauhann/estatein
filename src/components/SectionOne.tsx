@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
+import CircularBadge from "@/components/ui/CircularBadge";
 
 const SectionOne = () => {
   return (
-    <div className="w-full flex flex-col-reverse lg:flex-row bg-[#0a0a0a]">
+    <div className="w-full flex flex-col-reverse md:flex-row lg:flex-row">
       {/* Left Content */}
       <div className="w-full lg:w-[55%] px-6 md:px-12 lg:pl-24 lg:pr-12 py-16 flex flex-col justify-center">
         <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6">
@@ -34,8 +35,9 @@ const SectionOne = () => {
           ].map((stat, i) => (
             <div
               key={i}
-              className={`bg-[#1a1a1a] border border-zinc-800 p-5 rounded-xl ${i === 2 ? "col-span-2 md:col-span-1" : ""
-                }`}
+              className={`bg-[#1a1a1a] border border-zinc-800 p-5 rounded-xl text-center md:text-left ${
+                i === 2 ? "col-span-2 md:col-span-1" : ""
+              }`}
             >
               <p className="text-white text-2xl md:text-3xl font-bold">
                 {stat.value}
@@ -49,8 +51,8 @@ const SectionOne = () => {
       </div>
 
       {/* Right Image with Overlaid Badge */}
-      <div className="w-full lg:w-[45%] relative min-h-[300px] md:min-h-[500px] bg-[#141414] px-4 md:px-0">
-        <div className="relative w-full h-full rounded-[20px] md:rounded-none overflow-hidden border border-zinc-800 md:border-none">
+      <div className="w-full lg:w-[45%] relative min-h-[300px] md:min-h-[500px] px-4 md:px-0">
+        <div className="relative w-full h-full rounded-[20px] md:rounded-none overflow-hidden border border-zinc-800 md:border-none bg-[radial-gradient(circle_at_top_right,_rgba(112,59,247,0.3)_0%,_#141414_50%)]">
           <img
             src="/building.png"
             alt="Modern Building"
@@ -58,7 +60,9 @@ const SectionOne = () => {
           />
         </div>
 
-
+        <div className="absolute -bottom-12 left-4 md:top-1/2 md:left-0 md:-translate-x-1/2 md:-translate-y-1/2">
+          <CircularBadge />
+        </div>
       </div>
     </div>
   );

@@ -27,19 +27,40 @@ const sections = [
 
 const SectionTwo = () => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 bg-[#0a0a0a] border-5 border-[#141414] ">
+    <div
+      className="
+        grid
+        grid-cols-2 md:grid-cols-4
+        gap-3 md:gap-6
+        px-6 md:px-12 lg:px-24
+        pt-10 pb-16
+        min-h-[320px]
+        place-content-center
+        border-[5px] border-[#141414]
+      "
+    >
       {sections.map(({ id, title, icon: Icon }) => (
         <div
           key={id}
-          className="relative flex flex-col items-center justify-center text-center bg-[#141414] border border-zinc-800 p-8 rounded-xl group hover:border-[#703BF7] transition-all duration-300"
+          className="
+            relative
+            flex flex-col items-center justify-center
+            text-center
+            bg-[#141414]
+            border border-zinc-800
+            p-5 md:p-8
+            rounded-xl
+            group
+            hover:border-[#703BF7]
+            transition-all duration-300
+          "
         >
-          {/* Top-right Icon/Button Style */}
+          {/* Top-right Icon */}
           <div className="absolute top-4 right-4">
             <GoArrowUpRight className="text-zinc-500 group-hover:text-white text-xl transition-colors" />
           </div>
 
           <div className="flex flex-col items-center gap-4">
-            {/* Icon Container */}
             <div className="p-3 bg-[#1a1a1a] rounded-full border border-zinc-800 group-hover:scale-110 transition-transform duration-300">
               <Icon className="w-8 h-8 text-[#703BF7]" />
             </div>

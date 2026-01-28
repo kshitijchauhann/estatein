@@ -39,12 +39,15 @@ const reviews = [
   },
 ];
 
+import SectionStars from "@/components/ui/SectionStars";
+
 const SectionReviews = () => {
   return (
-    <section className="w-full bg-[#0a0a0a] py-16 px-6 md:px-12 lg:px-24 flex flex-col gap-12">
+    <section className="w-full py-16 px-6 md:px-12 lg:px-24 flex flex-col gap-12">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6">
         <div className="max-w-3xl space-y-4">
+          <SectionStars className="justify-start" />
           <h2 className="text-white text-3xl md:text-4xl font-bold">
             What Our Clients Say
           </h2>
@@ -54,12 +57,6 @@ const SectionReviews = () => {
             needs.
           </p>
         </div>
-        <Button
-          variant="outline"
-          className="bg-[#141414] text-white border-zinc-800 hover:bg-zinc-800 w-fit rounded-lg px-6"
-        >
-          View All Testimonials
-        </Button>
       </div>
 
       {/* Reviews Grid */}
@@ -107,27 +104,34 @@ const SectionReviews = () => {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex justify-between items-center pt-4 border-t border-zinc-900 md:border-none md:pt-0">
-        <div className="text-zinc-400 hidden md:block">
-          <span className="text-white font-medium">01</span> of 10
-        </div>
+      <div className="flex flex-row justify-between items-center pt-4 border-t border-zinc-900 md:border-none md:pt-0 gap-4 md:gap-0">
+        <Button
+          variant="outline"
+          className="bg-[#141414] text-white border-zinc-800 hover:bg-zinc-800 w-auto px-6 py-5 rounded-lg"
+        >
+          View All Testimonials
+        </Button>
 
-        {/* Mobile: Centered or Full Width? Design shows right aligned on desktop usually, but let's keep it right for consistency */}
-        <div className="flex gap-3 ml-auto md:ml-0">
-          <Button
-            variant="outline"
-            size="icon"
-            className="rounded-full bg-[#141414] border-zinc-800 text-white hover:bg-zinc-800 w-12 h-12"
-          >
-            <GoArrowLeft className="text-xl" />
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            className="rounded-full bg-[#141414] border-zinc-800 text-white hover:bg-zinc-800 w-12 h-12"
-          >
-            <GoArrowRight className="text-xl" />
-          </Button>
+        <div className="flex items-center gap-4 w-auto justify-end">
+          <div className="flex gap-3 items-center">
+            <Button
+              variant="outline"
+              size="icon"
+              className="rounded-full bg-[#141414] border-zinc-800 text-white hover:bg-zinc-800 w-12 h-12"
+            >
+              <GoArrowLeft className="text-xl" />
+            </Button>
+            <div className="text-zinc-400 block">
+              <span className="text-white font-medium">01</span> of 10
+            </div>
+            <Button
+              variant="outline"
+              size="icon"
+              className="rounded-full bg-[#141414] border-zinc-800 text-white hover:bg-zinc-800 w-12 h-12"
+            >
+              <GoArrowRight className="text-xl" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>
