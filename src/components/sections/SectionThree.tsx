@@ -10,70 +10,33 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { IoBed } from "react-icons/io5";
 import { FaBath, FaBuilding } from "react-icons/fa";
-import { GoArrowLeft, GoArrowRight } from "react-icons/go";
-
-const properties = [
-  {
-    id: 1,
-    image: "/building1.png",
-    title: "Seaside Serenity Villa",
-    description:
-      "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
-    beds: "4-Bedroom",
-    baths: "3-Bathroom",
-    type: "Villa",
-    price: "$550,000",
-  },
-  {
-    id: 2,
-    image: "/building2.png",
-    title: "Metropolitan Haven",
-    description:
-      "A chic and fully-furnished 2-bedroom apartment with panoramic city views...",
-    beds: "2-Bedroom",
-    baths: "2-Bathroom",
-    type: "Villa",
-    price: "$550,000",
-  },
-  {
-    id: 3,
-    image: "/building3.png",
-    title: "Rustic Retreat Cottage",
-    description:
-      "An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community...",
-    beds: "3-Bedroom",
-    baths: "3-Bathroom",
-    type: "Villa",
-    price: "$550,000",
-  },
-];
-
+import { PROPERTIES } from "@/data";
 import SectionStars from "@/components/ui/SectionStars";
+import { SectionHeader } from "@/components/common/SectionHeader";
+import { Pagination } from "@/components/common/Pagination";
+import { usePagination } from "@/hooks/usePagination";
 
 const SectionThree = () => {
+  const { currentPage, goToPrevious, goToNext } = usePagination({
+    totalPages: 60,
+  });
+
   return (
     <div className="w-full py-16 px-6 md:px-12 lg:px-24 flex flex-col gap-10">
       {/* Header Section */}
-      <div className="w-full flex justify-between items-end">
-        <div className="space-y-2">
-          <SectionStars className="justify-start" />
-          <h2 className="text-white text-3xl font-bold">Featured Properties</h2>
-          <p className="text-zinc-400 max-w-2xl">
-            Explore our handpicked selection of featured properties. Each
-            listing offers a glimpse into exceptional homes and investments
-            available through Estatein.
-          </p>
-        </div>
-      </div>
+      <SectionHeader
+        preTitle={<SectionStars className="justify-start" />}
+        title="Featured Properties"
+        description="Explore our handpicked selection of featured properties. Each listing offers a glimpse into exceptional homes and investments available through Estatein."
+      />
 
       {/* Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {properties.map((property, index) => (
+        {PROPERTIES.map((property, index) => (
           <Card
             key={property.id}
-            className={`bg-[#141414] border-zinc-800 p-6 rounded-2xl text-white flex flex-col h-full ${
-              index > 0 ? "hidden md:flex" : "flex"
-            }`}
+            className={`bg-[#141414] border-zinc-800 p-6 rounded-2xl text-white flex flex-col h-full ${index > 0 ? "hidden md:flex" : "flex"
+              }`}
           >
             {/* Image container with fixed aspect ratio */}
             <div className="relative overflow-hidden rounded-xl mb-6 aspect-video">
@@ -139,27 +102,13 @@ const SectionThree = () => {
           View All Properties
         </Button>
 
-        <div className="flex items-center gap-4 w-auto justify-end">
-          <div className="flex gap-3 items-center">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-[#141414] border-zinc-800 text-white hover:bg-zinc-800 w-12 h-12"
-            >
-              <GoArrowLeft className="text-xl" />
-            </Button>
-            <div className="text-zinc-400 block">
-              <span className="text-white font-medium">01</span> of 60
-            </div>
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-[#141414] border-zinc-800 text-white hover:bg-zinc-800 w-12 h-12"
-            >
-              <GoArrowRight className="text-xl" />
-            </Button>
-          </div>
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={60}
+          onPrevious={goToPrevious}
+          onNext={goToNext}
+          className="w-auto border-none pt-0"
+        />
       </div>
     </div>
   );

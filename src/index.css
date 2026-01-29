@@ -9,6 +9,11 @@
 
 @theme {
     --font-urbanist: "Urbanist", sans-serif;
+    --color-primary: #703BF7;
+    --color-primary-hover: #5d2ed1;
+    --color-background-dark: #0a0a0a;
+    --color-background-medium: #141414;
+    --color-background-light: #1a1a1a;
 }
 
 @layer base {

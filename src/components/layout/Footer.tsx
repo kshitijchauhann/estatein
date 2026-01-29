@@ -8,41 +8,15 @@ import {
 } from "react-icons/fa";
 import { LuSendHorizontal } from "react-icons/lu";
 import { HiOutlineMail } from "react-icons/hi";
+import { FOOTER_LINKS, SOCIAL_LINKS } from "@/constants";
+import { SocialIconButton } from "@/components/common/SocialIconButton";
 
-const footerLinks = [
-  {
-    title: "Home",
-    links: ["Hero Section", "Features", "Properties", "Testimonials", "FAQ's"],
-  },
-  {
-    title: "About Us",
-    links: [
-      "Our Story",
-      "Our Works",
-      "How It Works",
-      "Our Team",
-      "Our Clients",
-    ],
-  },
-  {
-    title: "Properties",
-    links: ["Portfolio", "Categories"],
-  },
-  {
-    title: "Contact Us",
-    links: ["Contact Form", "Our Offices"],
-  },
-  {
-    title: "Services",
-    links: [
-      "Valuation Mastery",
-      "Strategic Marketing",
-      "Negotiation Wizardry",
-      "Closing Success",
-      "Property Management",
-    ],
-  },
-];
+const SocialIconMap = {
+  FaFacebookF: <FaFacebookF />,
+  FaLinkedinIn: <FaLinkedinIn />,
+  FaTwitter: <FaTwitter />,
+  FaYoutube: <FaYoutube />,
+};
 
 const Footer = () => {
   return (
@@ -106,7 +80,7 @@ const Footer = () => {
 
         {/* Navigation Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:flex-[2]">
-          {footerLinks.map((section) => (
+          {FOOTER_LINKS.map((section) => (
             <div key={section.title} className="space-y-6">
               <h3 className="text-zinc-500 font-medium">{section.title}</h3>
               <ul className="space-y-4">
@@ -136,20 +110,13 @@ const Footer = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          {[
-            { icon: <FaFacebookF />, label: "Facebook" },
-            { icon: <FaLinkedinIn />, label: "LinkedIn" },
-            { icon: <FaTwitter />, label: "Twitter" },
-            { icon: <FaYoutube />, label: "YouTube" },
-          ].map((social, index) => (
-            <a
+          {SOCIAL_LINKS.map((item, index) => (
+            <SocialIconButton
               key={index}
-              href="#"
-              aria-label={social.label}
-              className="w-10 h-10 flex items-center justify-center bg-[#0a0a0a] rounded-full border border-zinc-800 text-white hover:bg-zinc-800 transition-all"
-            >
-              {social.icon}
-            </a>
+              icon={SocialIconMap[item.icon as keyof typeof SocialIconMap]}
+              label={item.label}
+              href={item.href}
+            />
           ))}
         </div>
       </div>

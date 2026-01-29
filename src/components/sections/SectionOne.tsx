@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import CircularBadge from "@/components/ui/CircularBadge";
+import { StatCard } from "@/components/common/StatCard";
+import { STATS } from "@/data";
 
 const SectionOne = () => {
   return (
@@ -28,24 +30,12 @@ const SectionOne = () => {
 
         {/* Stats Grid - No Gap Style */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
-          {[
-            { label: "Happy Customers", value: "200+" },
-            { label: "Properties For Clients", value: "10k+" },
-            { label: "Years of Experience", value: "16+" },
-          ].map((stat, i) => (
-            <div
+          {STATS.map((stat, i) => (
+            <StatCard
               key={i}
-              className={`bg-[#1a1a1a] border border-zinc-800 p-5 rounded-xl text-center md:text-left ${
-                i === 2 ? "col-span-2 md:col-span-1" : ""
-              }`}
-            >
-              <p className="text-white text-2xl md:text-3xl font-bold">
-                {stat.value}
-              </p>
-              <p className="text-zinc-500 text-xs md:text-sm mt-1">
-                {stat.label}
-              </p>
-            </div>
+              stat={stat}
+              className={i === 2 ? "col-span-2 md:col-span-1" : ""}
+            />
           ))}
         </div>
       </div>

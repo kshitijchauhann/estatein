@@ -1,10 +1,10 @@
-import Header from "@/components/Header";
-import SectionOne from "@/components/SectionOne";
-import SectionTwo from "@/components/SectionTwo";
-import SectionThree from "@/components/SectionThree";
-import SectionReviews from "@/components/SectionReviews";
-import SectionFour from "@/components/SectionFour";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Header";
+import SectionOne from "@/components/sections/SectionOne";
+import SectionTwo from "@/components/sections/SectionTwo";
+import SectionThree from "@/components/sections/SectionThree";
+import SectionReviews from "@/components/sections/SectionReviews";
+import SectionFour from "@/components/sections/SectionFour";
+import Footer from "@/components/layout/Footer";
 
 const App = () => {
   return (
