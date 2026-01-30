@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "image": "/building1.png",
+        "title": "Seaside Serenity Villa",
+        "description": "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+        "beds": "4-Bedroom",
+        "baths": "3-Bathroom",
+        "type": "Villa",
+        "price": "$550,000"
+    },
+    {
+        "id": 2,
+        "image": "/building2.png",
+        "title": "Metropolitan Haven",
+        "description": "A chic and fully-furnished 2-bedroom apartment with panoramic city views...",
+        "beds": "2-Bedroom",
+        "baths": "2-Bathroom",
+        "type": "Apartment",
+        "price": "$550,000"
+    },
+    {
+        "id": 3,
+        "image": "/building3.png",
+        "title": "Rustic Retreat Cottage",
+        "description": "An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community...",
+        "beds": "3-Bedroom",
+        "baths": "3-Bathroom",
+        "type": "Cottage",
+        "price": "$550,000"
+    }
+]

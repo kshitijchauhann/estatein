@@ -10,16 +10,33 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { IoBed } from "react-icons/io5";
 import { FaBath, FaBuilding } from "react-icons/fa";
-import { PROPERTIES } from "@/data";
 import SectionStars from "@/components/ui/SectionStars";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { Pagination } from "@/components/common/Pagination";
 import { usePagination } from "@/hooks/usePagination";
+import { useEffect, useState } from "react";
+import { fetchProperties } from "@/services/api";
+import type { Property } from "@/types";
 
 const SectionThree = () => {
+  const [properties, setProperties] = useState<Property[]>([]);
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(properties.length / itemsPerPage) || 1;
+
   const { currentPage, goToPrevious, goToNext } = usePagination({
-    totalPages: 60,
+    totalPages: totalPages,
   });
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentProperties = properties.slice(startIndex, startIndex + itemsPerPage);
+
+  useEffect(() => {
+    const loadProperties = async () => {
+      const data = await fetchProperties();
+      setProperties(data);
+    };
+    loadProperties();
+  }, []);
 
   return (
     <div className="w-full py-16 px-6 md:px-12 lg:px-24 flex flex-col gap-10">
@@ -32,7 +49,7 @@ const SectionThree = () => {
 
       {/* Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {PROPERTIES.map((property, index) => (
+        {currentProperties.map((property, index) => (
           <Card
             key={property.id}
             className={`bg-[#141414] border-zinc-800 p-6 rounded-2xl text-white flex flex-col h-full ${index > 0 ? "hidden md:flex" : "flex"
@@ -104,7 +121,7 @@ const SectionThree = () => {
 
         <Pagination
           currentPage={currentPage}
-          totalPages={60}
+          totalPages={totalPages}
           onPrevious={goToPrevious}
           onNext={goToNext}
           className="w-auto border-none pt-0"
@@ -115,3 +132,4 @@ const SectionThree = () => {
 };
 
 export default SectionThree;
+
