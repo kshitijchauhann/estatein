@@ -24,7 +24,16 @@ const createTable = async () => {
                 features TEXT[]
             );
         `);
-        console.log("Table 'properties' created successfully.");
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS users (
+                id SERIAL PRIMARY KEY,
+                username VARCHAR(255) NOT NULL,
+                email VARCHAR(255) UNIQUE NOT NULL,
+                password_hash VARCHAR(255) NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `);
+        console.log("Tables 'properties' and 'users' created/verified successfully.");
     } catch (err) {
         console.error("Error creating table:", err);
     }
@@ -48,6 +57,8 @@ const seedData = async () => {
     try {
         // Clear existing data
         await pool.query('TRUNCATE TABLE properties RESTART IDENTITY');
+        await pool.query('TRUNCATE TABLE users RESTART IDENTITY');
+
 
         for (let i = 0; i < properties.length; i++) {
             const p = properties[i];

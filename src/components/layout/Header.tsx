@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { Menu } from "lucide-react";
 import { NAVIGATION_ITEMS } from "@/constants";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <nav className="w-full  bg-[#141414]  border-b border-zinc-900 px-6 md:px-12 lg:px-24 py-4 flex items-center justify-between sticky top-0 z-50">
       {/* Brand Logo and Title */}
@@ -21,8 +23,8 @@ const Header = () => {
             key={item.label}
             variant="ghost"
             className={`${item.label === "Home"
-                ? "text-white bg-[#141414] border border-zinc-800"
-                : "text-zinc-400 hover:text-white hover:bg-zinc-900"
+              ? "text-white bg-[#141414] border border-zinc-800"
+              : "text-zinc-400 hover:text-white hover:bg-zinc-900"
               } px-6 py-2 rounded-lg transition-all`}
           >
             {item.label}
@@ -30,12 +32,13 @@ const Header = () => {
         ))}
       </div>
 
-      {/* Desktop Contact Button */}
+      {/* Desktop Login Button */}
       <Button
         variant="outline"
         className="hidden md:flex bg-[#141414] border-zinc-800 text-white px-6 py-2 rounded-lg hover:bg-zinc-800 transition-all"
+        onClick={() => navigate('/login')}
       >
-        Contact Us
+        Login
       </Button>
 
       {/* Mobile Menu Drawer */}
@@ -69,8 +72,8 @@ const Header = () => {
                     key={item.label}
                     variant="ghost"
                     className={`w-full justify-start ${item.label === "Home"
-                        ? "text-white bg-zinc-900 border border-zinc-800"
-                        : "text-zinc-400 hover:text-white hover:bg-zinc-900"
+                      ? "text-white bg-zinc-900 border border-zinc-800"
+                      : "text-zinc-400 hover:text-white hover:bg-zinc-900"
                       } px-6 py-4 rounded-lg transition-all text-lg`}
                   >
                     {item.label}
@@ -82,8 +85,9 @@ const Header = () => {
                 <Button
                   variant="outline"
                   className="w-full bg-[#141414] border-zinc-800 text-white px-6 py-4 rounded-lg hover:bg-zinc-800 transition-all text-lg"
+                  onClick={() => navigate('/login')}
                 >
-                  Contact Us
+                  Login
                 </Button>
               </div>
             </div>
